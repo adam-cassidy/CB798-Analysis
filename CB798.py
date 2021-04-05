@@ -73,7 +73,6 @@ plt.xticks(rotation=45, ha="right", fontsize=12)
 ax1.set_title("Time Series of Cancellations and Bookings (7 Day Rolling Avg)", fontsize=16)
 fig.set_size_inches(18, 6)
 plt.show()
-#TODO: RECODE 0 and 1 X AXIS
 
 # Are there any notable spikes or trends - either days of the week or months?
 # cancAvg = df['is_canceled'].sum() / len(df) === 62.9% bookings cancelled
@@ -440,7 +439,6 @@ ax142.spines['bottom'].set_visible(False)
 ax140.set_ylabel("No. Bookings")
 
 
-
 d = .015  # how big to make the diagonal lines in axes coordinates
 # arguments to pass to plot, just so we don't keep repeating them
 kwargs = dict(transform=ax142.transAxes, color='k', clip_on=False)
@@ -460,34 +458,6 @@ axes[1].set_ylabel("% Value")
 fig.suptitle("Cancellations by Lead Time & Lead Time Frequency")
 
 plt.show()
-
-"""labels = cancellationLead.index
-x2 = np.arange(len(labels))
-width = 0.45
-fig, ax14 = plt.subplots(2, figsize=(10,6), sharex=True)
-
-ax14[0].scatter(x = cancellationLead.index, y= cancellationLead.values, color="orange", label="Cancellations (%)")
-m, b = np.polyfit(cancellationLead.index, cancellationLead.values, 1) # line of best fit
-ax14[0].plot(cancellationLead.index, m * cancellationLead.index + b)
-ax14[0].set_xlabel("Lead Time (Days) - Cancellations (%)")
-ax14[0].set_ylabel("% Value")
-
-ax14[1].scatter(x= numLead.index, y= numLead.values, color="magenta", label="Cancellations (Frequency)")
-m, b = np.polyfit(numLead.index, numLead.values, 1) # line of best fit
-ax14[1].plot(numLead.index, m * numLead.index + b)
-ax14[1].set_xlabel("Lead Time (Days) (Frequency)")
-#ax14[1].semilogy(2)
-#ax14[1].set_ylim(0, 2000)
-#ax14[1].yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, _: '{:g}'.format(y)))
-ax14[1].set_ylabel("Frequency")
-
-fig.suptitle("Cancellations by Lead Time & Lead Time Frequency")
-
-lines_labels = [ax.get_legend_handles_labels() for ax in fig.axes]
-lines, labels = [sum(lol, []) for lol in zip(*lines_labels)]
-fig.legend(lines, labels, loc='upper left', borderaxespad=0)
-
-plt.show()"""
 
 # Booking room category
 
@@ -571,12 +541,7 @@ width = 0.4
 fig, ax20 = plt.subplots()
 
 
-#ax5.bar(x2 - width / 2, cancellationStay, width, label='Cancellations', align='center')  # , tick_label=lengthOrder)
-#ax5.bar(x2 + width / 2, cancellationNotStay, width, label='Successful', align='center')  # , tick_label=lengthOrder)
-#ax5.plot(cancellationStay, label='Cancellations')
-#ax5.plot(cancellationNotStay, label='Successful')
 ax20.plot(cancellationADR)
-#ax5.set_ylabel("Frequency")
 ax20.set_ylabel("% Value")
 ax20.set_xlabel("ADR")
 ax20.set_title("Percentage of Cancellations by ADR")
